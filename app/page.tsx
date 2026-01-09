@@ -9,6 +9,7 @@ import { OurWorkSection } from "@/components/our-work-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ContactSection } from "@/components/contact-section"
 import { AppverseFooter } from "@/components/appverse-footer"
+import { PlatformMarquee } from "@/components/platform-marquee"
 import Script from "next/script"
 import { useState } from "react"
 import dynamic from "next/dynamic"
@@ -95,6 +96,11 @@ export default function Page() {
 
         <section className="container mx-auto px-4 py-16">
           <AboutSection />
+        </section>
+
+        <PlatformMarquee />
+
+        <section className="container mx-auto px-4 py-16">
           <ServicesSection />
           <OurWorkSection />
           <TestimonialsSection />

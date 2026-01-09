@@ -1,98 +1,138 @@
 "use client"
 
 import { Play } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export function OurWorkSection() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+  const [thumbnails, setThumbnails] = useState<Record<string, string>>({})
 
   const projects = [
     {
       id: 1,
-      client: "TechStart Inc.",
-      title: "Product Launch Campaign",
-      description: "A viral social media campaign that generated 2M+ impressions and 50K+ engagements in 30 days.",
-      videoUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Timeline%201-Ku3Y2Hgaw8hCiFEFg1ELtYp631rSzR.webm",
-      thumbnail: "/tech-product-launch-social-media-campaign.jpg",
-      metrics: { impressions: "2M+", engagement: "50K+", roi: "400%" },
+      client: "Yenu Trading",
+      title: "Trading Strategy",
+      description: "Educational views on trading market analysis.",
+      videoId: "7552228406931361035",
+      metrics: { views: "15K+", likes: "1.2K+" },
     },
     {
       id: 2,
-      client: "Fashion Forward",
-      title: "Brand Awareness Campaign",
-      description: "Instagram and TikTok campaign that increased brand awareness by 300% and drove 10K new followers.",
-      videoUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/A%20new%20chapter%20in%20the%20story%20of%20success.__Introducing%20the%20new%20TAG%20Heuer%20Carrera%20Day-Date%20collection%2C%20reimagined%20with%20bold%20colors%2C%20refined%20finishes%2C%20and%20upgraded%20functionality%20to%20keep%20you%20focused%20on%20your%20goals.%20__Six%20-nDNoRQyFaZ8oaaoty4XaQz8W8E5bqA.mp4",
-      thumbnail: "/fashion-brand-instagram-campaign.jpg",
-      metrics: { followers: "10K+", awareness: "300%", reach: "5M+" },
+      client: "Universal Consultancy",
+      title: "Study Abroad",
+      description: "Helping students achieve their international education goals.",
+      videoId: "7591912437666827532",
+      metrics: { views: "45K+", shares: "500+" },
     },
     {
       id: 3,
-      client: "FitLife Gym",
-      title: "Membership Drive",
-      description: "Multi-platform campaign that resulted in 500+ new memberships and 80% increase in website traffic.",
-      videoUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/b0f3222371106db366a14ca1c29cef55-1b1EWVSa4w3FL2zslcaCGYTy9vcxjF.mp4",
-      thumbnail: "/fitness-gym-social-media-campaign.jpg",
-      metrics: { memberships: "500+", traffic: "80%", conversions: "25%" },
+      client: "JimiChops",
+      title: "Barber Transformation",
+      description: "Satisfying grooming and style makeovers.",
+      videoId: "7582900318984310028",
+      metrics: { views: "10K+", likes: "800+" },
     },
     {
       id: 4,
-      client: "Gourmet Eats",
-      title: "Restaurant Promotion",
-      description:
-        "Food photography and influencer campaign that doubled reservations and increased social following by 200%.",
-      videoUrl:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Timeline%201-Ku3Y2Hgaw8hCiFEFg1ELtYp631rSzR.webm",
-      thumbnail: "/restaurant-food-social-media.jpg",
-      metrics: { reservations: "2x", followers: "200%", engagement: "150%" },
+      client: "Rainbow Capital",
+      title: "Financial Growth",
+      description: "Expert advice on capital management and investment.",
+      videoId: "7588113385691057464",
+      metrics: { views: "22K+", saves: "1.5K+" },
+    },
+    {
+      id: 5,
+      client: "Gojo Jobs",
+      title: "Career Opportunities",
+      description: "Connecting talent with top employers.",
+      videoId: "7556516467957566776",
+      metrics: { views: "30K+", shares: "2K+" },
+    },
+    {
+      id: 6,
+      client: "Cenacle Reflexology",
+      title: "Wellness & Health",
+      description: "Promoting holistic health and reflexology benefits.",
+      videoId: "7580039356593884427",
+      metrics: { views: "12K+", likes: "600+" },
+    },
+    {
+      id: 7,
+      client: "Next Point Travel",
+      title: "Travel Adventures",
+      description: "Curating unforgettable travel experiences.",
+      videoId: "7585990918587649291",
+      metrics: { views: "50K+", shares: "3K+" },
     },
   ]
+
+  useEffect(() => {
+    projects.forEach((project) => {
+      fetch(`/api/tiktok-oembed?videoId=${project.videoId}`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.thumbnail_url) {
+            setThumbnails((prev) => ({ ...prev, [project.videoId]: data.thumbnail_url }))
+          }
+        })
+        .catch((err) => console.error("Error loading thumbnail:", err))
+    })
+  }, [])
 
   return (
     <div id="work" className="space-y-8">
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Our <span className="text-lime-300">Work</span>
+          Viral <span className="text-lime-300">Campaigns</span>
         </h2>
         <p className="text-gray-300 text-lg leading-relaxed">
-          See how we've helped brands like yours achieve remarkable results through strategic digital marketing.
+          See how we've helped brands like yours achieve remarkable results with trending vertical content.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 mt-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-12">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="liquid-glass rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform"
+            className="group relative rounded-xl overflow-hidden cursor-pointer"
+            onClick={() => setSelectedVideo(project.videoId)}
           >
-            <div
-              className="relative aspect-video bg-gray-900 group cursor-pointer"
-              onClick={() => setSelectedVideo(project.videoUrl)}
-            >
-              <img
-                src={project.thumbnail || "/placeholder.svg"}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors flex items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-lime-400 flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-black fill-black ml-1" />
+            {/* 9:16 Aspect Ratio Container */}
+            <div className="aspect-[9/16] relative bg-gray-900 border border-white/10 overflow-hidden">
+              {/* Thumbnail Image */}
+              {thumbnails[project.videoId] ? (
+                <img
+                  src={thumbnails[project.videoId]}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              ) : (
+                // Fallback Gradient if no thumbnail yet
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-80" />
+              )}
+
+              {/* Overlays */}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+
+              {/* Play Button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-lime-400 flex items-center justify-center shadow-lg shadow-lime-400/20 group-hover:scale-110 transition-transform">
+                  <Play className="w-6 h-6 md:w-8 md:h-8 text-black fill-black ml-1" />
                 </div>
               </div>
-            </div>
-            <div className="p-6">
-              <div className="text-sm text-lime-400 mb-1">{project.client}</div>
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-4 text-sm">
-                {Object.entries(project.metrics).map(([key, value]) => (
-                  <div key={key}>
-                    <div className="text-lime-400 font-semibold">{value}</div>
-                    <div className="text-gray-500 text-xs capitalize">{key}</div>
-                  </div>
-                ))}
+
+              {/* Info Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-12">
+                <div className="text-xs font-medium text-lime-300 mb-1">{project.client}</div>
+                <h3 className="text-sm md:text-base font-bold text-white mb-2 leading-tight">{project.title}</h3>
+                <div className="flex items-center gap-3 text-xs text-white/90">
+                  {Object.entries(project.metrics).map(([key, value]) => (
+                    <div key={key} className="flex gap-1 items-center bg-white/10 px-2 py-1 rounded backdrop-blur-sm">
+                      <span className="font-bold">{value}</span>
+                      <span className="opacity-70 capitalize">{key}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -101,11 +141,23 @@ export function OurWorkSection() {
 
       {selectedVideo && (
         <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedVideo(null)}
         >
-          <div className="relative w-full max-w-4xl aspect-video">
-            <video src={selectedVideo} controls autoPlay className="w-full h-full rounded-lg" />
+          {/* Vertical Video Modal */}
+          <div className="relative h-[85vh] aspect-[9/16] max-w-full bg-black rounded-xl overflow-hidden shadow-2xl shadow-lime-400/10" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src={`https://www.tiktok.com/embed/v2/${selectedVideo}?autoplay=1`}
+              className="w-full h-full border-none"
+              allow="autoplay; fullscreen"
+            ></iframe>
+            <button
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-4 right-4 bg-black/50 text-white rounded-full p-2 hover:bg-white/20 transition-colors z-50"
+            >
+              <span className="sr-only">Close</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+            </button>
           </div>
         </div>
       )}

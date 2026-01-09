@@ -5,6 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Icons } from "@/components/icons"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ export function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-800 focus:border-lime-400 focus:outline-none focus:ring-2 focus:ring-lime-400/20 transition-colors"
-                placeholder="John Doe"
+                placeholder="Abebe Kebede"
               />
             </div>
 
@@ -72,7 +73,7 @@ export function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-800 focus:border-lime-400 focus:outline-none focus:ring-2 focus:ring-lime-400/20 transition-colors"
-                placeholder="john@example.com"
+                placeholder="abebe@example.com"
               />
             </div>
 
@@ -87,7 +88,7 @@ export function ContactSection() {
                 value={formData.phone}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-800 focus:border-lime-400 focus:outline-none focus:ring-2 focus:ring-lime-400/20 transition-colors"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+251 911 123 456"
               />
             </div>
 
@@ -102,7 +103,7 @@ export function ContactSection() {
                 value={formData.company}
                 onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-gray-900/50 border border-gray-800 focus:border-lime-400 focus:outline-none focus:ring-2 focus:ring-lime-400/20 transition-colors"
-                placeholder="Your Company"
+                placeholder="Ethio Retail PLC"
               />
             </div>
 
@@ -144,10 +145,10 @@ export function ContactSection() {
                 <div>
                   <div className="font-semibold mb-1">Email</div>
                   <a
-                    href="mailto:hello@kiwedigital.com"
+                    href="mailto:Adonaywelday211@gmail.com"
                     className="text-gray-400 hover:text-lime-400 transition-colors"
                   >
-                    hello@kiwedigital.com
+                    Adonaywelday211@gmail.com
                   </a>
                 </div>
               </div>
@@ -157,10 +158,10 @@ export function ContactSection() {
                   <Phone className="w-5 h-5 text-lime-400" />
                 </div>
                 <div>
-                      <div className="font-semibold mb-1">Phone</div>
-                      <a href="tel:+251926404142" className="text-gray-400 hover:text-lime-400 transition-colors">
-                        0926404142
-                      </a>
+                  <div className="font-semibold mb-1">Phone</div>
+                  <a href="tel:+251926404142" className="text-gray-400 hover:text-lime-400 transition-colors">
+                    +251 926 404 142
+                  </a>
                 </div>
               </div>
 
@@ -171,11 +172,9 @@ export function ContactSection() {
                 <div>
                   <div className="font-semibold mb-1">Office</div>
                   <p className="text-gray-400">
-                    123 Digital Avenue
+                    HayaHulet 22,  Building
                     <br />
-                    San Francisco, CA 94102
-                    <br />
-                    United States
+                    Addis Ababa, Ethiopia
                   </p>
                 </div>
               </div>
@@ -202,27 +201,44 @@ export function ContactSection() {
 
           <div className="liquid-glass rounded-2xl p-8">
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-            <div className="flex gap-3 items-center">
+            <div className="flex flex-wrap gap-3 items-center">
               <a
                 href="https://t.me/kiwedigitals"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-auto px-3 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center gap-2 hover:border-lime-400 hover:bg-lime-400/10 transition-colors"
+                className="w-10 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-[#2AABEE] hover:border-[#2AABEE] hover:bg-[#2AABEE]/10 transition-colors"
                 aria-label="Telegram"
               >
-                <span className="text-sm font-medium">Telegram</span>
-                <span className="text-xs text-gray-400">@kiwedigitals</span>
+                <Icons.Telegram className="w-5 h-5" />
               </a>
-              {["Instagram", "Facebook", "Twitter", "LinkedIn"].map((platform) => (
-                <a
-                  key={platform}
-                  href={`#${platform.toLowerCase()}`}
-                  className="w-10 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center hover:border-lime-400 hover:bg-lime-400/10 transition-colors"
-                  aria-label={platform}
-                >
-                  <span className="text-xs font-medium">{platform[0]}</span>
-                </a>
-              ))}
+              <a
+                href="#instagram"
+                className="w-10 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-[#E4405F] hover:border-[#E4405F] hover:bg-[#E4405F]/10 transition-colors"
+                aria-label="Instagram"
+              >
+                <Icons.Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="#tiktok"
+                className="w-10 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-[#00F2EA] hover:border-[#00F2EA] hover:bg-[#00F2EA]/10 transition-colors"
+                aria-label="TikTok"
+              >
+                <Icons.TikTok className="w-5 h-5" />
+              </a>
+              <a
+                href="#linkedin"
+                className="w-10 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-[#0077B5] hover:border-[#0077B5] hover:bg-[#0077B5]/10 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Icons.LinkedIn className="w-5 h-5" />
+              </a>
+              <a
+                href="#twitter"
+                className="w-10 h-10 rounded-full bg-gray-900/50 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-white hover:bg-white/10 transition-colors"
+                aria-label="X / Twitter"
+              >
+                <Icons.TwitterX className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>

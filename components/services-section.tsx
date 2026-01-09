@@ -1,4 +1,4 @@
-import { Sparkles, Megaphone } from "lucide-react"
+import { Sparkles, Megaphone, Globe } from "lucide-react"
 
 export function ServicesSection() {
   return (
@@ -12,14 +12,14 @@ export function ServicesSection() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8 mt-12">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {/* Full Social Media Management */}
-        <div className="liquid-glass rounded-2xl p-8 hover:scale-[1.02] transition-transform">
+        <div className="liquid-glass rounded-2xl p-8 hover:scale-[1.02] transition-transform flex flex-col">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-lime-400/10 mb-6">
             <Sparkles className="w-7 h-7 text-lime-400" />
           </div>
           <h3 className="text-2xl font-bold mb-3">Full Social Media Management</h3>
-          <p className="text-gray-300 text-base leading-relaxed mb-6">
+          <p className="text-gray-300 text-base leading-relaxed mb-6 flex-grow">
             We handle <span className="text-lime-300 font-semibold">everything</span> to grow your online presence — so
             you can focus on running your business.
           </p>
@@ -56,12 +56,12 @@ export function ServicesSection() {
         </div>
 
         {/* Social Media Advertising */}
-        <div className="liquid-glass rounded-2xl p-8 hover:scale-[1.02] transition-transform">
+        <div className="liquid-glass rounded-2xl p-8 hover:scale-[1.02] transition-transform flex flex-col">
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-lime-400/10 mb-6">
             <Megaphone className="w-7 h-7 text-lime-400" />
           </div>
           <h3 className="text-2xl font-bold mb-3">Social Media Advertising</h3>
-          <p className="text-gray-300 text-base leading-relaxed mb-6">
+          <p className="text-gray-300 text-base leading-relaxed mb-6 flex-grow">
             We create and manage <span className="text-lime-300 font-semibold">high-performing ad campaigns</span> that
             actually convert.
           </p>
@@ -77,7 +77,7 @@ export function ServicesSection() {
             </div>
           </div>
 
-          <div className="bg-lime-400/5 border border-lime-400/20 rounded-xl p-5 mt-6">
+          <div className="bg-lime-400/5 border border-lime-400/20 rounded-xl p-5 mt-auto">
             <p className="text-lime-300 font-semibold mb-2">Our Goal:</p>
             <p className="text-gray-300 text-sm leading-relaxed">
               Help your brand reach the <span className="text-white font-medium">right audience</span>, boost
@@ -85,9 +85,46 @@ export function ServicesSection() {
               line.
             </p>
           </div>
+        </div>
 
-          <div className="mt-6 pt-6 border-t border-white/10">
-            <p className="text-gray-400 text-sm">From targeting to creative to optimization — we handle it all.</p>
+        {/* Web Development */}
+        <div className="liquid-glass rounded-2xl p-8 hover:scale-[1.02] transition-transform flex flex-col">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-lime-400/10 mb-6">
+            <Globe className="w-7 h-7 text-lime-400" />
+          </div>
+          <h3 className="text-2xl font-bold mb-3">Web Development</h3>
+          <p className="text-gray-300 text-base leading-relaxed mb-6 flex-grow">
+            Your website is your <span className="text-lime-300 font-semibold">digital handshake</span>. We build fast, stunning sites that convert visitors into loyal fans.
+          </p>
+          <div className="space-y-3">
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-lime-400 flex-shrink-0 mt-2" />
+              <div>
+                <p className="text-white font-medium">Modern Design</p>
+                <p className="text-gray-400 text-sm">Looks amazing on every phone, tablet, and laptop</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-lime-400 flex-shrink-0 mt-2" />
+              <div>
+                <p className="text-white font-medium">SEO Optimized</p>
+                <p className="text-gray-400 text-sm">Get found by people searching for exactly what you offer</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-lime-400 flex-shrink-0 mt-2" />
+              <div>
+                <p className="text-white font-medium">High Performance</p>
+                <p className="text-gray-400 text-sm">Loading your site shouldn't take a coffee break</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-2 h-2 rounded-full bg-lime-400 flex-shrink-0 mt-2" />
+              <div>
+                <p className="text-white font-medium">Conversion Focused</p>
+                <p className="text-gray-400 text-sm">Designed to turn "just browsing" into "take my money"</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

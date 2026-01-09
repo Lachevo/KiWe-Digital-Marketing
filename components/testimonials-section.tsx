@@ -1,60 +1,52 @@
 import { Star, Quote } from "lucide-react"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 export function TestimonialsSection() {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart Inc.",
-      company: "TechStart Inc.",
+      name: "Yoseph Solomon",
+      role: "Owner, Cenacle Reflexology",
+      company: "Cenacle Reflexology",
+      image: "/reflex.jpg",
+      rating: 5,
+      text: "They transformed our reflexology business with consistent, high-quality content and real results—we saw more bookings within weeks.",
+    },
+    {
+      name: "Henok Sisay",
+      role: "Manager, Next Point Travel Solution",
+      company: "Next Point Travel Solution",
+      image: "/henok",
+      rating: 5,
+      text: "They boosted our travel agency’s visibility and trust with powerful content that brought real inquiries.",
+    },
+    {
+      name: "Tadiyos Meseret",
+      role: "Owner, Gojo Jobs",
+      company: "Gojo Jobs",
+      image: "/gojo.JPG",
+      rating: 5,
+      text: "They helped our job vacancy company reach the right candidates with clear, engaging, and high-converting content. Thanks to their strategy, our listings now get more visibility, applications, and genuine applicants.",
+    },
+    {
+      name: "Bethelhem Tadesse",
+      role: "Marketing Director, Abyssinia Coffee",
+      company: "Abyssinia Coffee",
       image: "/professional-woman-ceo.png",
       rating: 5,
-      text: "KiWe Digital transformed our social media presence completely. Within 3 months, we saw a 400% increase in engagement and our brand awareness skyrocketed. Their team is professional, creative, and truly understands digital marketing.",
-    },
-    {
-      name: "Michael Chen",
-      role: "Marketing Director, Fashion Forward",
-      company: "Fashion Forward",
-      image: "/professional-marketing-director.png",
-      rating: 5,
-      text: "Working with KiWe has been a game-changer for our brand. They don't just post content—they create strategic campaigns that drive real results. Our follower count tripled and sales increased by 250% in just 6 months.",
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Owner, FitLife Gym",
-      company: "FitLife Gym",
-      image: "/professional-woman-gym-owner.jpg",
-      rating: 5,
-      text: "The ROI we've seen from KiWe's campaigns is incredible. They helped us fill our gym to capacity with a targeted social media strategy. Their content is always on-brand and their analytics reports are detailed and actionable.",
-    },
-    {
-      name: "David Park",
-      role: "Founder, Gourmet Eats",
-      company: "Gourmet Eats",
-      image: "/professional-restaurant-owner.png",
-      rating: 5,
-      text: "KiWe Digital's content creation is top-notch. Their food photography and video work has made our restaurant the talk of the town. Reservations doubled and our Instagram following grew by 200%. Highly recommend!",
-    },
-    {
-      name: "Lisa Thompson",
-      role: "CMO, EcoHome Solutions",
-      company: "EcoHome Solutions",
-      image: "/professional-woman-cmo.jpg",
-      rating: 5,
-      text: "The team at KiWe is responsive, creative, and data-driven. They took the time to understand our brand and created campaigns that truly resonated with our audience. Our engagement rates are now 5x higher than before.",
-    },
-    {
-      name: "James Wilson",
-      role: "VP Marketing, CloudTech",
-      company: "CloudTech",
-      image: "/professional-man-vp-marketing.jpg",
-      rating: 5,
-      text: "KiWe Digital doesn't just manage social media—they build communities. Their strategic approach helped us connect with our target audience in meaningful ways. The results speak for themselves: 3M+ impressions and counting.",
+      text: "KiWe Digital truly understands the local market. Their creative campaigns helped us modernize our brand while staying true to our roots, resulting in a significant boost in both online engagement and instore foot traffic.",
     },
   ]
 
   return (
     <div id="testimonials" className="space-y-8">
-      <div className="text-center max-w-3xl mx-auto">
+      <div className="text-center max-w-3xl mx-auto mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Client <span className="text-lime-300">Testimonials</span>
         </h2>
@@ -63,35 +55,57 @@ export function TestimonialsSection() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-        {testimonials.map((testimonial, index) => (
-          <div key={index} className="liquid-glass rounded-2xl p-6 flex flex-col">
-            <Quote className="w-8 h-8 text-lime-400/30 mb-4" />
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3 h-full">
+                <div className="liquid-glass rounded-2xl p-6 flex flex-col h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-lime-400/50 transition-colors">
+                  <div className="flex justify-between items-start mb-4">
+                    <Quote className="w-8 h-8 text-lime-400/30" />
+                    <div className="flex gap-1">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-lime-400 text-lime-400" />
+                      ))}
+                    </div>
+                  </div>
 
-            <div className="flex gap-1 mb-4">
-              {Array.from({ length: testimonial.rating }).map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-lime-400 text-lime-400" />
-              ))}
-            </div>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">"{testimonial.text}"</p>
 
-            <p className="text-gray-300 text-sm leading-relaxed mb-6 flex-grow">{testimonial.text}</p>
-
-            <div className="flex items-center gap-3 pt-4 border-t border-gray-800">
-              <img
-                src={testimonial.image || "/placeholder.svg"}
-                alt={testimonial.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div>
-                <div className="font-semibold text-sm">{testimonial.name}</div>
-                <div className="text-xs text-gray-400">{testimonial.role}</div>
-              </div>
-            </div>
+                  <div className="flex items-center gap-3 pt-4 border-t border-gray-800 mt-auto">
+                    <img
+                      src={testimonial.image || "/placeholder.svg"}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover ring-2 ring-lime-400/20"
+                    />
+                    <div>
+                      <div className="font-semibold text-sm text-lime-100">{testimonial.name}</div>
+                      <div className="text-xs text-gray-400">{testimonial.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="hidden md:block">
+            <CarouselPrevious className="left-[-2rem] bg-black/50 border-lime-400/30 hover:bg-lime-400/20 hover:text-lime-400" />
+            <CarouselNext className="right-[-2rem] bg-black/50 border-lime-400/30 hover:bg-lime-400/20 hover:text-lime-400" />
           </div>
-        ))}
+        </Carousel>
       </div>
 
-      <div className="liquid-glass rounded-2xl p-8 text-center mt-12">
+      <div className="liquid-glass rounded-2xl p-8 text-center mt-12 max-w-4xl mx-auto">
         <h3 className="text-2xl font-bold mb-2">Join Our Success Stories</h3>
         <p className="text-gray-400 mb-6">Ready to see similar results for your brand?</p>
         <a
