@@ -118,6 +118,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -169,18 +170,15 @@
 
 /* Enhanced glass border hover effects with chromatic aberration */
 .glass-border:hover {
-  filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.1)) drop-shadow(1px 0 2px rgba(0, 255, 0, 0.08))
-    drop-shadow(-1px 0 2px rgba(0, 0, 255, 0.06));
+  filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.1)) drop-shadow(1px 0 2px rgba(0, 255, 0, 0.08)) drop-shadow(-1px 0 2px rgba(0, 0, 255, 0.06));
 }
 
 .glass-border-enhanced:hover {
-  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.12)) drop-shadow(1px 0 3px rgba(0, 255, 0, 0.1))
-    drop-shadow(-1px 0 3px rgba(0, 0, 255, 0.08));
+  filter: drop-shadow(0 0 3px rgba(255, 0, 0, 0.12)) drop-shadow(1px 0 3px rgba(0, 255, 0, 0.1)) drop-shadow(-1px 0 3px rgba(0, 0, 255, 0.08));
 }
 
 .glass-border-subtle:hover {
-  filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.06)) drop-shadow(0.5px 0 1px rgba(0, 255, 0, 0.05))
-    drop-shadow(-0.5px 0 1px rgba(0, 0, 255, 0.04));
+  filter: drop-shadow(0 0 1px rgba(255, 0, 0, 0.06)) drop-shadow(0.5px 0 1px rgba(0, 255, 0, 0.05)) drop-shadow(-0.5px 0 1px rgba(0, 0, 255, 0.04));
 }
 
 /* Logo Marquee Animations - Seamless Infinite Loop */
@@ -188,6 +186,7 @@
   0% {
     transform: translateX(-33.333%);
   }
+
   100% {
     transform: translateX(0%);
   }
@@ -197,6 +196,7 @@
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-33.333%);
   }
@@ -251,16 +251,18 @@ a[href*="v0.dev"] *,
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
 }
 
 .animate-gradient-text {
-  background: linear-gradient(to right, #bef264, #67e8f9, #d8b4fe, #fda4af, #bef264);
+  background: linear-gradient(to right, #bef264, #4ade80, #22c55e, #84cc16, #bef264);
   background-size: 300% auto;
   -webkit-background-clip: text;
   background-clip: text;
