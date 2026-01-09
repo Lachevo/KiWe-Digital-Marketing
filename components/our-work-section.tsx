@@ -14,7 +14,6 @@ export function OurWorkSection() {
       title: "Trading Strategy",
       description: "Educational views on trading market analysis.",
       videoId: "7552228406931361035",
-      metrics: { views: "15K+", likes: "1.2K+" },
     },
     {
       id: 2,
@@ -22,7 +21,6 @@ export function OurWorkSection() {
       title: "Study Abroad",
       description: "Helping students achieve their international education goals.",
       videoId: "7591912437666827532",
-      metrics: { views: "45K+", shares: "500+" },
     },
     {
       id: 3,
@@ -30,7 +28,6 @@ export function OurWorkSection() {
       title: "Barber Transformation",
       description: "Satisfying grooming and style makeovers.",
       videoId: "7582900318984310028",
-      metrics: { views: "10K+", likes: "800+" },
     },
     {
       id: 4,
@@ -38,7 +35,6 @@ export function OurWorkSection() {
       title: "Financial Growth",
       description: "Expert advice on capital management and investment.",
       videoId: "7588113385691057464",
-      metrics: { views: "22K+", saves: "1.5K+" },
     },
     {
       id: 5,
@@ -46,7 +42,6 @@ export function OurWorkSection() {
       title: "Career Opportunities",
       description: "Connecting talent with top employers.",
       videoId: "7556516467957566776",
-      metrics: { views: "30K+", shares: "2K+" },
     },
     {
       id: 6,
@@ -54,7 +49,6 @@ export function OurWorkSection() {
       title: "Wellness & Health",
       description: "Promoting holistic health and reflexology benefits.",
       videoId: "7580039356593884427",
-      metrics: { views: "12K+", likes: "600+" },
     },
     {
       id: 7,
@@ -62,7 +56,6 @@ export function OurWorkSection() {
       title: "Travel Adventures",
       description: "Curating unforgettable travel experiences.",
       videoId: "7585990918587649291",
-      metrics: { views: "50K+", shares: "3K+" },
     },
   ]
 
@@ -124,15 +117,7 @@ export function OurWorkSection() {
               {/* Info Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent pt-12">
                 <div className="text-xs font-medium text-lime-300 mb-1">{project.client}</div>
-                <h3 className="text-sm md:text-base font-bold text-white mb-2 leading-tight">{project.title}</h3>
-                <div className="flex items-center gap-3 text-xs text-white/90">
-                  {Object.entries(project.metrics).map(([key, value]) => (
-                    <div key={key} className="flex gap-1 items-center bg-white/10 px-2 py-1 rounded backdrop-blur-sm">
-                      <span className="font-bold">{value}</span>
-                      <span className="opacity-70 capitalize">{key}</span>
-                    </div>
-                  ))}
-                </div>
+                <h3 className="text-sm md:text-base font-bold text-white mb-0 leading-tight">{project.title}</h3>
               </div>
             </div>
           </div>
