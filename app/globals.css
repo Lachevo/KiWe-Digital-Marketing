@@ -246,3 +246,25 @@ a[href*="v0.dev"] *,
   pointer-events: none !important;
   opacity: 0 !important;
 }
+
+@keyframes gradient-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background: linear-gradient(to right, #bef264, #67e8f9, #d8b4fe, #fda4af, #bef264);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  animation: gradient-text 6s linear infinite;
+  display: inline-block;
+}

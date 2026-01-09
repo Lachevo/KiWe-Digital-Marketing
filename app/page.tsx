@@ -14,7 +14,7 @@ import Script from "next/script"
 import { useState } from "react"
 import dynamic from "next/dynamic"
 
-const Starfield = dynamic(() => import("@/components/starfield"), { ssr: false })
+const AnimatedBackground = dynamic(() => import("@/components/animated-background"), { ssr: false })
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState("about")
@@ -88,7 +88,7 @@ export default function Page() {
     <>
       {/* Starfield background only on home */}
       <div className="fixed inset-0 z-0 bg-black">
-        <Starfield count={160} />
+        <AnimatedBackground />
       </div>
       <main className="min-h-[100dvh] text-white">
         <SiteHeader activeTab={activeTab} onTabChange={setActiveTab} />

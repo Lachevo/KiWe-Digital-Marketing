@@ -15,14 +15,14 @@ export function Hero() {
     <section className="relative isolate overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center justify-center py-14 sm:py-20">
-          <div className="mb-5 flex items-center gap-2">
-            <Image src="/kiWeIcon.jpg" alt="KiWe Digital logo" width={32} height={32} className="h-8 w-8" />
-            <p className="text-sm uppercase tracking-[0.25em] text-lime-300/80">KiWe Digital</p>
+          <div className="mb-5 flex flex-col items-center justify-center gap-3">
+            <Image src="/kiWeIcon.jpg" alt="KiWe Digital logo" width={80} height={80} className="h-20 w-20 rounded-2xl" />
+            <p className="text-sm uppercase tracking-[0.25em] animate-gradient-text font-bold">KiWe digital marketing</p>
           </div>
-          <h1 className="mt-3 text-center text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-            <span className="block">SOCIAL MEDIA</span>
-            <span className="block text-lime-300 drop-shadow-[0_0_20px_rgba(132,204,22,0.35)]">THAT CONVERTS</span>
-            <span className="block">FOR YOUR BRAND</span>
+          <h1 className="mt-3 text-center text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl space-y-2">
+            <span className="block animate-gradient-text">SOCIAL MEDIA</span>
+            <span className="block animate-gradient-text drop-shadow-[0_0_20px_rgba(132,204,22,0.35)]">THAT CONVERTS</span>
+            <span className="block animate-gradient-text">FOR YOUR BRAND</span>
           </h1>
           <div className="mt-6">{buttonNew}</div>
 
