@@ -31,7 +31,7 @@ export function SiteHeader({ activeTab, onTabChange }: SiteHeaderProps) {
       <div className="container mx-auto max-w-7xl">
         <div className="flex h-14 items-center justify-between px-6 liquid-glass-header rounded-full">
           <Link href="/" className="flex items-center gap-1.5">
-            <Image src="/icons/skitbit-white.svg" alt="KiWe Digital logo" width={20} height={20} className="h-5 w-5" />
+            <Image src="/kiWeIcon.jpg" alt="KiWe Digital logo" width={20} height={20} className="h-5 w-5" />
             <span className="font-semibold tracking-wide text-white">KiWe Digital</span>
           </Link>
 
@@ -79,7 +79,7 @@ export function SiteHeader({ activeTab, onTabChange }: SiteHeaderProps) {
               <SheetContent side="right" className="liquid-glass border-gray-800 p-0 w-64 flex flex-col">
                 <div className="flex items-center gap-1.5 px-4 py-4 border-b border-gray-800">
                   <Image
-                    src="/icons/skitbit-white.svg"
+                    src="/kiWeIcon.jpg"
                     alt="KiWe Digital logo"
                     width={24}
                     height={24}
